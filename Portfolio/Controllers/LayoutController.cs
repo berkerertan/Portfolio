@@ -6,6 +6,11 @@ namespace Portfolio.Controllers
     {
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             return View();
         }
     }

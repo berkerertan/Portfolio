@@ -5,9 +5,15 @@ namespace Portfolio.DAL.Context
 {
     public class MyPortfolioContext : DbContext
     {
+        //public MyPortfolioContext(DbContextOptions<MyPortfolioContext> options)
+        //   : base(options)
+        //{
+        //}
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Portfolio ;Trusted_Connection=true");
+            
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
@@ -18,5 +24,7 @@ namespace Portfolio.DAL.Context
         public DbSet<Skill> Skills { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
-    }
+        public DbSet<ToDoList> ToDoLists { get; set; }
+		public DbSet<User> Users { get; set; }
+	}
 }

@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Portfolio.DAL.Context;
+using System.Configuration;
+
 namespace Portfolio
 {
     public class Program
@@ -8,6 +12,19 @@ namespace Portfolio
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Add session services
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout duration
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true; // Necessary for GDPR compliance
+            });
+
+            // Add your DbContext here (example)
+            //builder.Services.AddDbContext<MyPortfolioContext>(options =>
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection")));
 
             var app = builder.Build();
 
@@ -24,13 +41,17 @@ namespace Portfolio
 
             app.UseRouting();
 
+            // Add session and authentication middleware
+            app.UseSession();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Default}/{action=Index}/{id?}");
 
             app.Run();
         }
     }
 }
+

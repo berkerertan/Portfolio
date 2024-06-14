@@ -8,7 +8,12 @@ namespace Portfolio.Controllers
 		MyPortfolioContext context = new();
 		public IActionResult Index()
 		{
-			ViewBag.v1 = context.Skills.Count();
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            ViewBag.v1 = context.Skills.Count();
 			ViewBag.v2 = context.Messages.Count();
 			ViewBag.v3 = context.Messages.Where(x=>x.IsRead == false).Count();
 			ViewBag.v4 = context.Messages.Where(x=>x.IsRead == true).Count();

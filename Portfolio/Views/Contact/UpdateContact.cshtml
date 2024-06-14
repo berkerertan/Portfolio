@@ -1,0 +1,56 @@
+﻿@model Contact
+
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">İletişim</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">İletişim Güncelleme Sayfası</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							İletişim ile ilgili ekleme işlemini aşağıdaki panelden yapabilirsiniz.
+						</div>
+
+						<form method="post">
+							<input type="hidden" asp-for="ContactId" />
+
+							<label>Firma Bilgisi</label>
+							<input type="text" asp-for="Title" />
+							<br />
+							<label>Firma Bilgisi</label>
+							<input type="text" asp-for="Description" />
+							<br />
+							<label>Firma Bilgisi</label>
+							<input type="text" asp-for="Phone1" />
+							<br />
+							<label>Firma Bilgisi</label>
+							<input type="text" asp-for="Phone2" />
+							<br />
+							<label>Firma Bilgisi</label>
+							<input type="text" asp-for="Email1" />
+							<br />
+							<label>Pozisyon</label>
+							<input type="text" asp-for="Email2" />
+							<br />
+							<label>Tarih</label>
+							<input type="text" asp-for="Address" />
+							<br />
+							<button class="btn btn-primary">İletişim Ekle</button>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+

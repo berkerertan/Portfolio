@@ -9,6 +9,11 @@ namespace Portfolio.Controllers
         MyPortfolioContext context = new();
         public IActionResult ExperienceList()
         {
+            if (HttpContext.Session.GetString("Username") == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var values = context.Experiences.ToList();
             return View(values);
         }
