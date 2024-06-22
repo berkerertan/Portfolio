@@ -14,14 +14,11 @@
                 <h3>@item.Title</h3>
 
                 <h1>
-                    @* I am Jonathan Doe. <br>
-                    I am a graphic & UI/UX <br>
-                    designer based in Somewhere. *@
-                    @item.Description
+                    @Html.Raw(item.Description.Replace(".", ".<br />"))
                 </h1>
 
                 <div class="home-content__buttons">
-                    <a href="#works" class="smoothscroll btn btn--stroke">
+                    <a href="https://github.com/berkerertan" target="_blank" class="btn btn--stroke">
                         Github
                     </a>
                     <a href="#about" class="smoothscroll btn btn--stroke">
@@ -44,10 +41,10 @@
 
     <ul class="home-social">
         <li>
-            <a href="https://github.com/berkerertan"><i class="im im-github" aria-hidden="true"></i><span>Github</span></a>
+            <a href="https://github.com/berkerertan"><i class="im im-github" target="_blank" aria-hidden=" true"></i><span>Github</span></a>
         </li>
         <li>
-            <a href="#"><i class="im im-linkedn" aria-hidden="true"></i><span>Linkedn</span></a>
+            <a href="https://www.linkedin.com/in/berkerertan/"><i class="im im-linkedn" aria-hidden="true"></i><span>Linkedn</span></a>
         </li>
     </ul>
     <!-- end home-social -->

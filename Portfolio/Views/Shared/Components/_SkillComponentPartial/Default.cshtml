@@ -1,9 +1,41 @@
 ﻿@model List<Portfolio.DAL.Entities.Skill>
 
 <div class="col-six tab-full right">
-    <h3>I've Got Some skills.</h3>
+    <h3>Kullandığım bazı teknolojiler.</h3>
 
-    <ul class="skill-bars">
+
+    <style>
+    .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+    }
+
+    .skill {
+        width: calc(50% - 20px);
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+</style>
+
+<div class="skills-container">
+    @foreach (var item in Model)
+    {
+        <div class="skill">
+            @item.Title
+        </div>
+    }
+</div>
+    @* <ul class="skill-bars">
         @foreach (var item in Model)
         {
             <li>
@@ -13,5 +45,5 @@
             </li>
         }
         
-    </ul>
+    </ul> *@
 </div>
