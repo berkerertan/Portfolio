@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Portfolio.DAL.Context;
+using Portfolio.DAL.Entities;
 
 namespace Portfolio.ViewComponents
 {
@@ -8,5 +10,6 @@ namespace Portfolio.ViewComponents
         {
             return View();
         }
+
     }
 }

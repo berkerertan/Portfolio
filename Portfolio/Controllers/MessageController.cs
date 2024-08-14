@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.DAL.Context;
+using Portfolio.DAL.Entities;
 
 namespace Portfolio.Controllers
 {
@@ -17,7 +19,20 @@ namespace Portfolio.Controllers
 			return View(values);
 		}
 
-		public IActionResult ChangeIsReadToTrue(int id)
+        [HttpPost]
+        public IActionResult Submit(Message message)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Messages.Add(message);
+                context.SaveChanges();
+                return RedirectToAction("Success");
+            }
+
+            return View(message);
+        }
+
+        public IActionResult ChangeIsReadToTrue(int id)
 		{
 			var value = context.Messages.Find(id);
 			value.IsRead = true;
