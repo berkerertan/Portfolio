@@ -20,7 +20,20 @@ namespace Portfolio.Controllers
 			return View();
 		}
 
-		[HttpPost]
+        [HttpPost]
+        public IActionResult Submit(Message message)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Messages.Add(message);
+                context.SaveChanges();
+                return RedirectToAction("Success");
+            }
+
+            return View(message);
+        }
+
+        [HttpPost]
 		public IActionResult CreateContact(Contact contact)
 		{
 			context.Contacts.Add(contact);

@@ -1,31 +1,28 @@
-﻿<section>
+﻿@model Message
 
+<section>
     <div class="overlay"></div>
-
     <div class="row narrow section-intro">
         <div class="col-full mt-5" style="margin-top: 20px;">
             <h1 style="color: white;">İletişim</h1>
-
             <p style="color: gray;">Benimle iletişime geçmek için formu gönderin.</p>
         </div>
     </div>
-
     <div class="row contact__main">
         <div class="col-eight tab-full contact__form">
-            <form name="contactForm" id="contactForm" method="post" action="">
+            <form name="contactForm" id="contactForm" method="post" action="Submit">
                 <fieldset>
-
                     <div class="form-field">
-                        <input name="contactName" type="text" id="contactName" placeholder="İsim" value="" minlength="2" required="" aria-required="true" class="full-width">
+                        <input name="NameSurname" type="text" id="NameSurname" placeholder="İsim" value="" minlength="2" required="" aria-required="true" class="full-width">
                     </div>
                     <div class="form-field">
-                        <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="" aria-required="true" class="full-width">
+                        <input name="Email" type="email" id="Email" placeholder="Email" value="" required="" aria-required="true" class="full-width">
                     </div>
                     <div class="form-field">
-                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Konu" value="" class="full-width">
+                        <input name="Subject" type="text" id="Subject" placeholder="Konu" value="" class="full-width">
                     </div>
                     <div class="form-field">
-                        <textarea name="contactMessage" id="contactMessage" placeholder="Mesaj" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                        <textarea name="MessageDetail" id="MessageDetail" placeholder="Mesaj" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
                     </div>
                     <div class="form-field">
                         <button class="full-width btn--primary">Gönder</button>
@@ -58,7 +55,6 @@
             <h4 class="h06">Email</h4>
             <p>
                 berkerertan@hotmail.com<br>
-                info@holawebsite.com
             </p>
 
             <h4 class="h06">Adres</h4>

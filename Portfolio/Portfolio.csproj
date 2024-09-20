@@ -1,12 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<MvcRazorCompileOnPublish>true</MvcRazorCompileOnPublish>
+	</PropertyGroup>
 
-  <ItemGroup>
+
+	<ItemGroup>
     <Compile Remove="Views\Shared\Components\_FooterComponentPartia\**" />
     <Content Remove="Views\Shared\Components\_FooterComponentPartia\**" />
     <EmbeddedResource Remove="Views\Shared\Components\_FooterComponentPartia\**" />
@@ -27,6 +29,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ViewComponents\_HeadComponentPartial.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
 </Project>
